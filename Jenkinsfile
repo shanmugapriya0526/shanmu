@@ -3,20 +3,20 @@ pipeline {
     stages {
         stage('Pull Code From GitHub') {
             steps {
-                git 'https://github.com/manojcloud/k8s-project'
+                git 'https://github.com/Jeyaganeshdhanasekar/interview-project'
             }
         }
         stage('Build the Docker image') {
             steps {
                 sh 'sudo docker build -t newimage /var/lib/jenkins/workspace/kube'
-                sh 'sudo docker tag newimage manoj167/newimage:latest'
-                sh 'sudo docker tag newimage manoj167/newimage:${BUILD_NUMBER}'
+                sh 'sudo docker tag newimage jeyaganeshd/newimage:latest'
+                sh 'sudo docker tag newimage jeyaganeshd/newimage:${BUILD_NUMBER}'
             }
         }
         stage('Push the Docker image') {
             steps {
-                sh 'sudo docker image push manoj167/newimage:latest'
-                sh 'sudo docker image push manoj167/newimage:${BUILD_NUMBER}'
+                sh 'sudo docker image push jeyaganeshd/newimage:latest'
+                sh 'sudo docker image push jeyaganeshd/newimage:${BUILD_NUMBER}'
 
             }
         }
