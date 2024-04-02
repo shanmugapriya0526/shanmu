@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build the Docker image') {
             steps {
-                sh 'sudo docker build -t newimage /var/lib/jenkins/workspace/kube'
+                sh 'sudo docker build -t newimage /var/lib/jenkins/workspace/project'
                 sh 'sudo docker tag newimage jeyaganeshd/newimage:latest'
                 sh 'sudo docker tag newimage jeyaganeshd/newimage:${BUILD_NUMBER}'
             }
@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Deploy on Kubernetes') {
             steps {
-                sh 'sudo kubectl apply -f /var/lib/jenkins/workspace/kube/pod.yaml'
+                sh 'sudo kubectl apply -f /var/lib/jenkins/workspace/project/pod.yaml'
                 sh 'sudo kubectl rollout restart deployment loadbalancer-pod'
             }
         }
