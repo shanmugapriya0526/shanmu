@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Pull Code From GitHub') {
             steps {
-                git 'https://github.com/Jeyaganeshdhanasekar/interview-project'
+                git 'https://github.com/shanmugapriya0526/interview-project'
             }
         }
         stage('Build the Docker image') {
