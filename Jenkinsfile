@@ -9,14 +9,14 @@ pipeline {
         stage('Build the Docker image') {
             steps {
                 sh 'sudo docker build -t newimage /var/lib/jenkins/workspace/project'
-                sh 'sudo docker tag newimage jeyaganeshd/newimage:latest'
-                sh 'sudo docker tag newimage jeyaganeshd/newimage:${BUILD_NUMBER}'
+                sh 'sudo docker tag newimage shanmugapriya0526/newimage:latest'
+                sh 'sudo docker tag newimage shanmugapriya0526/newimage:${BUILD_NUMBER}'
             }
         }
         stage('Push the Docker image') {
             steps {
-                sh 'sudo docker image push jeyaganeshd/newimage:latest'
-                sh 'sudo docker image push jeyaganeshd/newimage:${BUILD_NUMBER}'
+                sh 'sudo docker image push shanmugapriya0526/newimage:latest'
+                sh 'sudo docker image push shanmugapriya0526/newimage:${BUILD_NUMBER}'
 
             }
         }
